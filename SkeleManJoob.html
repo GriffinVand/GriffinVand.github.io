@@ -1,0 +1,225 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <title>GriffinV/SkeleManJoob</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="default.css">
+    <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+    </style>
+  </head>
+<body class="w3-black">
+
+
+<!-- Navbar -->
+<div class="w3-top" id="myNavbar">
+  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+    <a href="index.html#" class="w3-bar-item w3-button" style="width:25%">HOME</a>
+    <a href="index.html#about" class="w3-bar-item w3-button" style="width:25%">ABOUT</a>
+    <a href="index.html#projects" class="w3-bar-item w3-button" style="width:25%">PROJECTS</a>
+    <a href="index.html#contact" class="w3-bar-item w3-button" style="width:25%">CONTACT</a>
+  </div>
+</div>
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+    <h1 class="w3-jumbo">SkelemanJoob</h1>
+    <h3 style="margin-bottom: 20px;">Role: Programming, Design, VFX, Modeling/Animation</h3>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/gfbf6-GPj7M?si=AgDK2Hz1lS683umz&autoplay=0" allowfullscreen> </iframe>
+    </div>
+    <h3 style="margin-bottom: 50px;">AI-Oriented Dungeon Survival</h3>
+    <a href="https://grifvand.itch.io/skelemanjoob" target="_blank"><p>Download and play from itch.io</p></a>
+    <a href="https://github.com/GriffinVand/Skeleman-Joob" target="_blank"><p>View repository on github</p></a>
+  </header>
+    
+    <!-- Project Section -->
+    <div class="w3-padding-64 w3-content project-section">
+        <h1 class="w3-text-light-grey" style="font-size: 40px;">About</h1>
+        <hr style="width:400px" class="w3-opacity">
+        <p style="text-indent: 0px; line-height:2; margin-bottom:40px;">SkelemanJoob was my final project for an AI programming class, created in Unreal Engine. The project required that NPCs in the game use an advanced
+          finite state machine for logic and a sense ability for detecting targets. I chose to create a linear dungeon experience in which the player recieves a task from a wizard to retrieve his sacred item.
+          The player is equipped with nothing but a crossbow that they can either shoot or bash with. In this short experience, the player must venture from chamber to chamber within a dungeon, 
+          clearing out any enemies that stand in their way.
+        </p>
+        
+        <!-- Grid for photos -->
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <div class="w3-half">
+                <img src="SKJ/SKJ_3.png" style="width:100%; max-width:400px;">
+                <img src="SKJ/SKJ_1.png" href="" style="width:100%; max-width:400px;">
+                <img src="SKJ/SKJ_2.png" style="width:100%; max-width:400px;">
+            </div>
+             <div class="w3-half">
+                <img src="SKJ/SKJ_4.png" style="width:100%; max-width:400px;">
+                <img src="SKJ/SKJ_5.png" style="width:100%; max-width:400px;">
+                <img src="SKJ/SKJ_6.png" style="width:100%; max-width:400px;">
+            </div>
+        <!-- End photo grid -->
+        </div>
+
+
+    <!-- End Project Section -->
+    </div>
+
+
+    <div class="w3-padding-64 w3-content project-section">
+      <h1 class="w3-text-light-grey" style="font-size: 40px;">Assets</h1>
+      <hr style="width:400px;" class="w3-opacity">
+
+      <p style="text-indent: 0px; line-height:1; font-size:20px;">The following assets were made by me. All others were outsourced:</p>
+      <ul style="margin-bottom: 20px;">
+        <li>Models: Player and crossbow</li>
+        <li>Animations: Player and crossbow</li>
+        <li>VFX: All vfx</li>
+        <li>Sound: All voicelines</li>
+      </ul>
+    </div>
+
+    <div class="w3-padding-64 w3-content project-section">
+        <h1 class="w3-text-light-grey" style="font-size: 40px;">State Machines</h1>
+        <hr style="width:400px; margin-bottom:60px;" class="w3-opacity">
+
+        <div class ="imageDescription">
+          <div class="description">
+            <p>The basis for all enemies is an advanced finite state machine equipped to each one. 
+              An FSM based AI routine performs by controlling one singular state at a time and transitioning from that singular state to another state depending on supplied conditions.
+              Each enemy can define what possible states it has and the transitions between those states.
+              The FSM itself need only update its current state. 
+            </p>
+          </div>
+          <div class="images">
+            <img src="SKJ/StateMachine.png">
+          </div>
+        </div>
+        
+        <div class ="imageDescription">
+          <div class="description">
+            <p>These enemies will initially patrol a given area until they sense their target. Once they've sensed a target they will move to their chase state.</p>
+          </div>
+          <div class="images">
+            <img src="./SKJ/SkelemanPatrolDemo.gif">
+          </div>
+        </div>
+
+        <div class ="imageDescription">
+          <div class="description">
+            <p>A single state has four optional functions.
+              <ul>
+                <li>OnEnter: Defines what happens as soon as the state is entered.</li>
+                <li>Reason: Defines logic related to changing states from current state or alternative behavior within the current state.</li>
+                <li>Act: General activity related to the current state such as timers or prompting an attack animation.</li>
+                <li>OnExit: Logic that occurs before the state is fully left such as removing focus.</li>
+              </ul>
+            </p>
+          </div>
+          <div class="images">
+            <img src="SKJ/SingleState.png">
+          </div>
+        </div>
+        
+        <div class ="imageDescription">
+          <div class="description">
+            <p>At runtime enemies communicate with their FSM in order to add their necessary states to it in addition to the transitions that those states can perform.
+              For example, a patrolling state need not transition straight to attacking so there is no reason to give it such a transition. We give patrol state a possible transition to a chasing state
+              and the chasing state will handle transitioning to attacking. This construction function is also where we declare how the enemy senses its desired targets. In this case it simply uses vision.
+            </p>
+          </div>
+          <div class="images">
+            <img src="SKJ/ConstructFSM.png">
+          </div>
+        </div>
+
+        <div class ="imageDescription">
+          <div class="description">
+            <p>As seen above. The mage enemy and fighter enemy have a "RespondToCallState". The state will be reached when an event occurs such as the troll scholar alerting nearby enemies that it is going to perform a heal.
+              Only enemies missing health will respond to the call.
+            </p>
+          </div>
+          <div class="images">
+            <img src="./SKJ/SkelemanHealDemo.gif">
+          </div>
+        </div>
+
+        <div class ="imageDescription">
+          <div class="description">
+            <p>NPCs also have a "Sense" object which dictates how they actually detect their targets.
+              None of the current enemies require a sense beyond vision but any additional senses could be added such as one
+              where they detect the player only when the player makes noise.
+            </p>
+          </div>
+          <div class="images">
+            <img src="./SKJ/Sensing.png">
+          </div>
+        </div>
+        
+    </div>
+
+    <!-- Project Section -->
+    <div class="w3-padding-64 w3-content project-section">
+        <h1 class="w3-text-light-grey" style="font-size: 40px;">Enemies</h1>
+        <hr style="width:400px; margin-bottom:60px;" class="w3-opacity">
+        
+
+        <div class="w3-center" style="margin-bottom: 50px;">
+          <h2 class="w3-text-light-grey"> Skeleton Mage</h2>
+          <hr style="width:200px; margin:auto;" class="w3-opacity">
+        </div>
+        <div class ="imageDescription">
+          <div class="description">
+            <p> The skeleton mage is a range enemy that launches fireballs.
+              These fireballs do high direct damage but can be easily avoided by side-stepping.
+              In the event that a fireball hits the ground, it leaves behind a pool of fire that does damage over time if stood in.
+            </p>
+          </div>
+          <div class="images">
+            <img src="./SKJ/SkelemanMageDemo.gif">
+            <img src="./SKJ/SkelemanGroundFireDemo.gif">
+          </div>
+        </div>
+
+        <div class="w3-center" style="margin-bottom: 50px;">
+          <h2 class="w3-text-light-grey"> Skeleton Fighter</h2>
+          <hr style="width:300px; margin:auto;" class="w3-opacity">
+        </div>
+        <div class ="imageDescription">
+          <div class="description">
+            <p>The skeleton fighter weilds a mace and is the quickest enemy.
+              It moves faster than the player meaning it will eventually get within melee range.
+              This is where the powerful "bash" mechanic comes into play, allowing you to effectively stun lock enemies so long as the timing is right.
+            </p>
+          </div>
+          <div class="images">
+            <img src="./SKJ/SkelemanMaceDemo.gif">
+            <img src="./SKJ/SkelemanStunDemo.gif">
+          </div>
+        </div>
+
+        <div class="w3-center" style="margin-bottom: 50px;">
+          <h2 class="w3-text-light-grey">Troll Scholar</h2>
+          <hr style="width:300px; margin:auto;" class="w3-opacity">
+        </div>
+        <div class ="imageDescription">
+          <div class="description">
+            <p>The troll scholar has a ranged attack similar to the mage that deals significantly more damage on direct hit.
+              The attack has no splash damage so a lone troll is a weak opponent. The troll's main role is to support its fellow combatants by occasionally utilising
+              a heal ability. Any damaged allies will flock to the troll to recieve healing after it is done charging.
+            </p>
+          </div>
+          <div class="images">
+            <img src="./SKJ/SkelemanTrollDemo.gif">
+          </div>
+        </div>
+
+    <!-- End Project Section -->
+    </div>
+</div>
+</body>
