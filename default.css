@@ -47,12 +47,18 @@
    .project-card {
       overflow: hidden;
       position: relative;
+      max-width: 250px;
       transition: transform 0.3s ease;
    }
 
    .project-card:hover {
       transform: scale(1.05);
       z-index:10;
+   }
+
+   .project-card:hover .project-title {
+      opacity: 1;
+      color: aqua;
    }
 
    .project-link {
@@ -156,7 +162,7 @@
    top: 0;
    width: 100%;
    background-color: rgb(41, 41, 41);
-   z-index: 1;
+   z-index: 12;
    }
 
    .navbar a, .dropdown {

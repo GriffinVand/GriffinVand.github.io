@@ -10,7 +10,7 @@ async function loadTextures(texture) {
 
 async function createPreview(canvas, model) {
 
-  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, preserveDrawingBuffer: true, powerPreference: "high-performance"});
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 100);
   camera.position.z = 2;
@@ -34,6 +34,8 @@ function resizeRenderer(Preview) {
 
   const width = canvas.clientWidth;
   const height = canvas.clientHeight;
+
+  if (width === 0 || height === 0) return;
 
   const needResize = canvas.width !== width || canvas.height !== height;
 
@@ -64,9 +66,13 @@ let timer = 0;
 let headRotation = 0;
 let headVel = -1;
 
+let animationId;
+
 function animate() {
+  animationId = requestAnimationFrame(animate);
+
   const now = performance.now()
-  const delta = (now - lastTime) / 1000;
+  const delta = Math.min((now - lastTime) / 1000, 0.05);
   lastTime = now;
 
   timer += delta;
@@ -108,8 +114,6 @@ function animate() {
     }
     p.renderer.render(p.scene, p.camera);
   });
-
-  requestAnimationFrame(animate);
 }
 
 animate();
