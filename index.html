@@ -26,25 +26,31 @@
 <body class="w3-black">
 <!-- Navbar on small screens (Hidden on medium and large screens) -->
 <!-- Navbar -->
-<div class="w3-top" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="index.html#" class="w3-bar-item w3-button" style="width:25%">HOME</a>
-    <a href="index.html#about" class="w3-bar-item w3-button" style="width:25%">ABOUT</a>
-    <a href="index.html#projects" class="w3-bar-item w3-button" style="width:25%">PROJECTS</a>
-    <a href="index.html#contact" class="w3-bar-item w3-button" style="width:25%">CONTACT</a>
-  </div>
+<div class="navbar">
+    <a href="index.html#">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    
+    <div class="dropdown">
+      <a href="index.html#projects">PROJECTS</a>
+      <div class="dropdown-content">
+        <a href="index.html#Current">In Progress</a>
+        <a href="index.html#Games">Games</a>
+        <a href="index.html#Art">Art</a>
+      </div>
+    </div>
+    <a href="index.html#contact">CONTACT</a>
 </div>
-<!-- Page Content -->
 
+<!-- Page Content -->
 <div class="w3-padding-large" id="main">
 
   <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+  <header class="w3-container w3-padding-64 w3-center w3-black" id="home">
     <div id="title-container" style="display:flex; justify-content:center; align-items: center; margin-top:50px;">
       <canvas class="three-canvas"></canvas>
       <div>
-        <h1 class="title">Griffin VanderGheynst.</h1>
-        <h3 class="sub-title" style="margin-top:0px;">Game Programmer and Developer</h3>
+        <h1 class="title griffin-text-1">Griffin VanderGheynst.</h1>
+        <h3 class="sub-title griffin-text-1" style="margin-top:0px;">Game Programmer and Developer</h3>
       </div>
       <canvas class="three-canvas"></canvas>
     </div>
@@ -55,90 +61,134 @@
 
   <!-- About Section -->
   <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
-    <h2 class="w3-text-light-grey">About Me</h2>
-    <hr style="width:400px" class="w3-opacity">
-    <p style="line-height:2;">Text about me</p>
+    <h2 class="w3-text-light-grey griffin-text-1">About Me</h2>
+    <hr style="width:400px; margin-top:0px;" class="w3-opacity">
+    <p class="griffin-text-1" style="line-height:2;">Text about me</p>
 
-    <a href="files/GriffinVanderGheynstResume.pdf" target="_blank">
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-eye"></i> View Resume
+    <button id="resume-button"class="w3-button w3-light-grey w3-padding-large w3-section griffin-text-1" onclick="showResume()">
+      <i id="view-resume-icon"class="fa fa-eye-slash"></i> <span id="view-resume-text">View Resume</span>
     </button>
-    </a>
-    </a>
+    <iframe id="resume-frame" src="https://docs.google.com/document/d/e/2PACX-1vRP9eIGcek9PmS5HJbKeKaTelcWqYqdwYfPaCVMUKifLM_4H5p9TSWUWloV3ZpJKtpvy4x3hmlOMAJr/pub?embedded=true" style="display:none; width:100%; height:400px; border:none;"></iframe>
+    <script>
+      frame.onload = function() {
+        frame.style.height = frame.contentWindow.document.body.scrollHeight + 'px';
+        frame.style.width = frame.contentWindow.document.body.scrollWidth + 'px';
+      }
+
+      function showResume() {
+        const frame = document.getElementById('resume-frame');
+        const text = document.getElementById('view-resume-text');
+        const icon = document.getElementById('view-resume-icon');
+        if (frame.style.display === 'none') {
+          frame.style.display = 'block';
+          text.textContent = 'Hide Resume';
+          icon.className = 'fa fa-eye';
+        } else {
+          frame.style.display = 'none';
+          text.textContent = 'View Resume';
+          icon.className = 'fa fa-eye-slash';
+        }
+      }
+    </script>
+    <div>
     <a href="files/GriffinVanderGheynstResume.pdf" download>
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
+    <button class="w3-button w3-light-grey w3-padding-large w3-section griffin-text-1">
       <i class="fa fa-download"></i> Download Resume
     </button>
     </a>
+    </div>
 
   <!-- End About Section -->
   </div>
 
-  <!-- Projects Section -->
+  <!-- Projects -->
   <div class="w3-padding-64 w3-content" id="projects">
-    <h2 class="w3-text-light-grey">Projects</h2>
-    <hr style="width:400px" class="w3-opacity">
+    <h2 class="w3-text-light-grey griffin-text-1">Projects</h2>
+    <hr style="width:400px; margin-top:0px;" class="w3-opacity">
 
-
-    <div class="project-section">
-    <h3 class="w3-text-light-grey"></h3>
-    <div class="project-flex">
-      <div class="project-card">
-          <a href="SkeleManJoob.html" class="project-link">
-            <img class="w3-opacity w3-hover-opacity-off" src="SKJ/SkelemanFace.png" alt="SkeleManJoob">
-            <div class="project-title" style="font-size: 18px;">SkeleMan Joob</div>
-          </a>
+    <!-- Currently Working Section -->
+    <div class="w3-padding-64 project-section" id="Current">
+      <h3 class="w3-text-light-grey griffin-text-1">In Progress</h3>
+      <hr style="width:200px; margin-top:0px;" class="w3-opacity">
+      <div class="project-flex">
+        <div class="project-card">
+            <a href="Fleetcomm.html" class="project-link">
+              <img class="w3-opacity w3-hover-opacity-off" src="Fleetcomm/Fleetcomm_Main.png" alt="Fleetcomm">
+              <div class="project-title" style="font-size: 18px;">Null Horizon</div>
+            </a>
+        </div>
+        <div class="project-card">
+            <a href="Goobunga.html" class="project-link">
+              <img class="w3-opacity w3-hover-opacity-off" src="Goobunga/Goobunga_Main.png" alt="Goobunga">
+              <div class="project-title" style="font-size: 18px;">Goobunga</div>
+            </a>
+        </div>
       </div>
-      <div class="project-card">
-          <a href="DaddysMilkRun.html" class="project-link">
-            <img class="w3-opacity w3-hover-opacity-off" src="DMR/DMR_HighRes.png" alt="SampleProject">
-            <div class="project-title" style="font-size: 18px;">
-              Daddy's Milk Run
-            </div>
-          </a>
-      </div>
-      <div class="project-card">
-          <a href="LaserGame.html" class="project-link">
-            <img class="w3-opacity w3-hover-opacity-off" src="Colony/Colony_Main.png" alt="SampleProject">
-            <div class="project-title" style="font-size: 18px;">Goddard's Colony Sim</div>
-          </a>
-      </div>
-      <div class="project-card">
-          <a href="PepperGame.html" class="project-link">
-            <img class="w3-opacity w3-hover-opacity-off" src="Goobunga/Pepper_Main.png" alt="SampleProject">
-            <div class="project-title" style="font-size: 18px;">Pepper Game</div>
-          </a>
-      </div>
+    <!-- End Currently Working Section -->
     </div>
 
+    <!-- Games Section -->
+    <div class="w3-padding-64 project-section" id="Games">
+    <h3 class="w3-text-light-grey griffin-text-1">Games</h3>
+    <hr style="width:200px; margin-top:0px;" class="w3-opacity">
+      <div class="project-flex">
+        <div class="project-card">
+            <a href="SkeleManJoob.html" class="project-link">
+              <img class="w3-opacity w3-hover-opacity-off" src="SKJ/SkelemanFace.png" alt="SkeleManJoob">
+              <div class="project-title" style="font-size: 18px;">SkeleMan Joob</div>
+            </a>
+        </div>
+        <div class="project-card">
+            <a href="DaddysMilkRun.html" class="project-link">
+              <img class="w3-opacity w3-hover-opacity-off" src="DMR/DMR_HighRes.png" alt="SampleProject">
+              <div class="project-title" style="font-size: 18px;">
+                <img src="files/Award.png" style="width:100%; max-width:20px; margin-right: 5px;"> Daddy's Milk Run
+              </div>
+            </a>
+        </div>
+        <div class="project-card">
+            <a href="LaserGame.html" class="project-link">
+              <img class="w3-opacity w3-hover-opacity-off" src="Colony/Colony_Main.png" alt="SampleProject">
+              <div class="project-title" style="font-size: 18px;">Goddard's Colony Sim</div>
+            </a>
+        </div>
+        <div class="project-card">
+            <a href="PepperGame.html" class="project-link">
+              <img class="w3-opacity w3-hover-opacity-off" src="Goobunga/Pepper_Main.png" alt="SampleProject">
+              <div class="project-title" style="font-size: 18px;">Pepper Game</div>
+            </a>
+        </div>
+      </div>
+    <!-- EndGames Section -->
     </div>
 
-    <div class="project-section">
-    <h3 class="w3-text-light-grey"></h3>
-    <div class="project-flex">
+    <!-- Art Section -->
+    <div class="w3-padding-64 project-section" id="Art">
+    <h3 class="w3-text-light-grey griffin-text-1">Art</h3>
+    <hr style="width:200px; margin-top:0px;" class="w3-opacity">
+      <div class="project-flex">
+      </div>
+    <!-- End Art Section -->
+    </div> 
 
-    </div>
-
-    </div>
-
-  <!-- End Projects Section -->
+  <!-- End Projects -->
   </div>
 
   <!-- Contact Section -->
   <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
-    <hr style="width:400px" class="w3-opacity">
+    <h2 class="w3-text-light-grey griffin-text-1">Contact Me</h2>
+    <hr style="width:400px; margin-top:0px;" class="w3-opacity">
 
     <div class="w3-section">
-      <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Worcester, MA / Clinton, NJ</p>
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +1 908-246-2623</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: griffinvand@gmail.com</p>
+      <p class="griffin-text-1" style="font-size:16px;"><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Worcester, MA / Clinton, NJ</p>
+      <p class="griffin-text-1" style="font-size:16px;"><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +1 908-246-2623</p>
+      <p class="griffin-text-1" style="font-size:16px;"><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: griffinvand@gmail.com</p>
     </div>
   <!-- End Contact Section -->
   </div>
 
 <!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us. -->
-<footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+<footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge" style="margin-top:100px;">
  <!-- End footer -->
 </footer>
 
