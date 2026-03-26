@@ -58,7 +58,7 @@
 
    .project-card:hover .project-title {
       opacity: 1;
-      color: aqua;
+      font-style: italic;
    }
 
    .project-link {
