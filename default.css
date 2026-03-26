@@ -44,6 +44,10 @@
       gap:20px;
    }
 
+   .project-section h1 {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+
    .project-card {
       overflow: hidden;
       position: relative;
