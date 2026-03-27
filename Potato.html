@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GriffinV/PotatoRoom</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="default.css">
+    <style>
+    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+    </style>
+  </head>
+<body class="w3-black">
+
+<!-- Navbar on small screens (Hidden on medium and large screens) -->
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html#">HOME</a>
+    <a href="index.html#about">ABOUT</a>
+    
+    <div class="dropdown">
+      <a href="index.html#projects">PROJECTS</a>
+      <div class="dropdown-content">
+        <a href="index.html#Current">In Progress</a>
+        <a href="index.html#Games">Games</a>
+        <a href="index.html#Art">Art</a>
+      </div>
+    </div>
+    <a href="index.html#contact">CONTACT</a>
+</div>
+
+<!-- Page Content -->
+<div class="w3-padding-large" id="main">
+  <!-- Header/Home -->
+  <header class="w3-container w3-padding-64 w3-center w3-black" id="home">
+    <h1 class="title griffin-text-1">Potato Room</h1>
+    <h3 class="sub-title griffin-text-1">Role: Sole Creator</h3>
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/FrNMcD0q48g?si=5uigO_CLSuQy_DUJ&autoplay=0" allowfullscreen> </iframe>
+    </div>
+    <h3 class="w3-padding-32 griffin-text-1">Environment art based on 2D concept art</h3>
+  </header>
+    
+    <!-- Project Section -->
+    <div class="w3-padding-64 w3-content project-section" style="margin-bottom:40px;">
+        <h1 class="w3-text-light-grey griffin-text-1" style="font-size: 40px;">About</h1>
+        <hr style="width:400px" class="w3-opacity">
+        <div class ="imageDescription">
+          <div class="description">
+            <p>This project was done for an 3D Environment Art class. I had to make a fully modeled environment based off of specifically 2D concept art
+                All modeling was done in Blender and all texturing was done in Substance 3D Painter or Substance 3D Designer. Assembled and rendered in Unreal Engine 5.
+            </p>
+        </div>
+          <div class="images">
+            <img src="Art/Potato/Potato_Ref.jpg" style="width:100%;">
+          </div>
+        </div>
+        <!-- Grid for photos -->
+        <div class="w3-row-padding" style="margin:0 -16px">
+            <img src="Art/Potato/Shot1.png" style="width:100%;">
+            <img src="Art/Potato/Shot2.png" style="width:100%;">
+            <div class="w3-half">
+                <img src="Art/Potato/Shot3.png" style="width:100%; max-width: 600px;">
+                <img src="Art/Potato/Shot4.png" style="width:100%; max-width: 600px;">
+            </div>
+            <div class="w3-half">
+                <img src="Art/Potato/Shot5.png" style="width:100%; max-width: 600px;">
+                <img src="Art/Potato/Shot6.png" style="width:100%; max-width: 600px;">
+            </div>
+        <!-- End photo grid -->
+        </div>
+    <!-- End project section -->
+    </div>
+
+</div>
+</body>

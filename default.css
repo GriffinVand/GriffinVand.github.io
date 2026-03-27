@@ -1,5 +1,13 @@
+   
+   
    .griffin-text-1 {
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   }
+
+   .under-construction {
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
    }
 
    .play-link p{
